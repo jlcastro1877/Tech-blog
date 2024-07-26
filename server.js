@@ -26,6 +26,7 @@ const sess = {
 };
 
 //Using session middleware with session object
+app.set("trust proxy", 1);
 app.use(session(sess));
 
 // Parsing incoming JSON and URL-encoded data
