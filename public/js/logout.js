@@ -2,7 +2,7 @@
 const techLogout = async () => {
   const response = await fetch("/api/users/logout", {
     method: "POST",
-    headers: { "Content-type": "application/json" },
+    headers: { "Content-Type": "application/json" },
   });
 
   if (response.ok) {
