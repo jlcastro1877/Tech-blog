@@ -1,7 +1,6 @@
 require("dotenv").config(); // Carrega variáveis de ambiente
 const { Sequelize } = require("sequelize");
 
-// Verifique se a variável de ambiente está definida
 const databaseUrl = process.env.DB_URL;
 
 if (!databaseUrl) {
@@ -10,17 +9,22 @@ if (!databaseUrl) {
 
 console.log("DB_URL:", databaseUrl); // Para depuração
 
-// Inicialize o Sequelize com a URL do banco de dados e opções de SSL
 const sequelize = new Sequelize(databaseUrl, {
   dialect: "postgres",
   dialectOptions: {
     decimalNumbers: true,
     ssl: {
-      require: true, // Requer SSL
-      rejectUnauthorized: false, // Opcional: Pode ser necessário dependendo da configuração do banco
+      require: true,
+      rejectUnauthorized: false, // Ajuste conforme necessário
     },
   },
-  logging: false, // Opcional: desativa o log SQL
+  pool: {
+    max: 10, // Ajuste conforme necessário
+    min: 0,
+    acquire: 30000, // Tempo máximo de aquisição de conexão em ms
+    idle: 10000, // Tempo máximo de inatividade da conexão em ms
+  },
+  logging: false, // Desativa o log SQL
 });
 
 module.exports = sequelize;
