@@ -1,13 +1,13 @@
 const deletePost = async (post_id) => {
   const response = await fetch(`/api/posts/${post_id}`, {
     method: "DELETE",
-    headers: { "content-type": "application/json" },
+    headers: { "Content-Type": "application/json" },
   });
 
   if (response.ok) {
-    document.location.reload(); // When successful, reaload the page
+    document.location.reload(); // When successful, reload the page
   } else {
-    alert("Failed to delete the post."); //When unsuccessful, show alert
+    alert("Failed to delete the post."); // When unsuccessful, show alert
   }
 };
 
