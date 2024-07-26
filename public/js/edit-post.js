@@ -3,11 +3,11 @@ const post_id = window.location.toString().split("/")[
   window.location.toString().split("/").length - 1
 ];
 
-//Update the post
-const updateTechPostFormHandler = async (event) => {
+// Update the post
+const updatetechPostFormHandler = async (event) => {
   event.preventDefault();
 
-  const title = documet.querySelector("#title-update-tech-post").value.trim();
+  const title = document.querySelector("#title-update-tech-post").value.trim();
   const content = document
     .querySelector("#content-update-tech-post")
     .value.trim();
@@ -16,19 +16,19 @@ const updateTechPostFormHandler = async (event) => {
     const response = await fetch(`/api/posts/${post_id}`, {
       method: "PUT",
       body: JSON.stringify({ title, content }),
-      headers: { "Content-type": "application/json" },
+      headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
       document.location.replace("/dashboard"); // When successful, load the dashboard page
     } else {
-      alert("Failed to update a post."); //When unsuccessful, show alert
+      alert("Failed to update a post."); // When unsuccessful, show alert
     }
   }
 };
 
 // Delete the post
-const deleteTechPostFormHandler = async (event) => {
+const deletetechPostFormHandler = async (event) => {
   event.preventDefault();
 
   const response = await fetch(`/api/posts/${post_id}`, {
@@ -43,14 +43,14 @@ const deleteTechPostFormHandler = async (event) => {
 };
 
 // Event listeners
-const updateTechPostButton = document.querySelector("#update-tech-post");
+const updatetechPostButton = document.querySelector("#update-tech-post");
 
-if (updateTechPostButton) {
-  updateTechPostButton.addEventListener("click", updateTechPostFormHandler);
+if (updatetechPostButton) {
+  updatetechPostButton.addEventListener("click", updatetechPostFormHandler);
 }
 
-const deleteTechPostButton = document.querySelector("#delete-tech-post");
+const deletetechPostButton = document.querySelector("#delete-tech-post");
 
-if (deleteTechPostButton) {
-  deleteTechPostButton.addEventListener("click", deleteTechPostFormHandler);
+if (deletetechPostButton) {
+  deletetechPostButton.addEventListener("click", deletetechPostFormHandler);
 }
