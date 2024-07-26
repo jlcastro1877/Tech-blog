@@ -57,6 +57,9 @@
   ## Email Address:
   ### jlcastro1877@gmail.com
 
+ ## WebSite
+ ### https://tech-blog-dkm9.onrender.com/
+
   ## Description:
   ### Build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Render. Your app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authenticatio
 
@@ -70,9 +73,6 @@
 
   ## About this REPO:
   ### it is public
-
-  ## WebSite
-  ### https://tech-blog-dkm9.onrender.com/
 
   ## Contributors:
   ### Email-me
